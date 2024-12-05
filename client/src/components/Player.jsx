@@ -25,6 +25,8 @@ export default function Player() {
     console.error("Playback error:", error);
   };
 
+  console.log("key in player:", key);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
       <div className="flex flex-col bg-[#111827] rounded-lg shadow-lg p-6 w-full max-w-4xl">
@@ -34,7 +36,8 @@ export default function Player() {
           </p>
         )}
         <ReactPlayer
-          url={`http://transcoded-videos-meg-app.s3-website-us-east-1.amazonaws.com/${key}/master.m3u8`}
+          key={key}
+          url={`http://transcoded-videos-meg-app.s3-website-us-east-1.amazonaws.com/${key}/master.m3u8?`}
           playing
           controls
           width="100%"
